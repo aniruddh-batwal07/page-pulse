@@ -59,6 +59,16 @@ describe("htmlParser", () => {
       expect(result.meta.description!.length).toBeGreaterThan(120);
     });
 
+    it("computes an approximate word count from visible body text", () => {
+      const result = parseHtml({ html: PERFECT_HTML, url: BASE_URL });
+      expect(result.wordCount).toBe(16);
+    });
+
+    it("returns zero word count when the page has no visible body text", () => {
+      const result = parseHtml({ html: "<html><head><title>Only title</title></head></html>", url: BASE_URL });
+      expect(result.wordCount).toBe(0);
+    });
+
     it("returns null description when missing", () => {
       const result = parseHtml({ html: BARE_HTML, url: BASE_URL });
       expect(result.meta.description).toBeNull();

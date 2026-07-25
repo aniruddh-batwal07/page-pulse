@@ -77,6 +77,8 @@ export interface ParsedPage {
   openGraph: ParsedOpenGraph;
   twitter: ParsedTwitter;
   technical: ParsedTechnical;
+  /** Approximate number of words from visible body text */
+  wordCount: number;
   /** Raw fetch metadata */
   statusCode: number;
 }

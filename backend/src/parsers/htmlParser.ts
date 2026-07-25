@@ -210,6 +210,17 @@ function parseTechnical($: cheerio.CheerioAPI): ParsedTechnical {
   };
 }
 
+function countApproximateWordCount($: cheerio.CheerioAPI): number {
+  $(`script, style, noscript`).remove();
+
+  const textRoot = $("body").length > 0 ? $("body") : $("html");
+  const text = textRoot.text().trim();
+
+  if (!text) return 0;
+
+  return text.split(/\s+/).filter(Boolean).length;
+}
+
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
@@ -228,6 +239,7 @@ export function parseHtml(input: ParserInput): ParsedPage {
     openGraph: parseOpenGraph($),
     twitter: parseTwitter($),
     technical: parseTechnical($),
+    wordCount: countApproximateWordCount($),
     // statusCode will be populated by the service (not the parser's concern)
     statusCode: 0,
   };

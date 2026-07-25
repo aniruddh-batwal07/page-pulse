@@ -84,6 +84,14 @@ describe("POST /api/v1/audit", () => {
       expect(res.body.data.parsedData).toBeDefined();
     });
 
+    it("response includes an approximate word count", async () => {
+      const res = await request(app)
+        .post("/api/v1/audit")
+        .send({ url: "https://example.com" });
+      expect(typeof res.body.data.parsedData.wordCount).toBe("number");
+      expect(res.body.data.parsedData.wordCount).toBeGreaterThanOrEqual(0);
+    });
+
     it("response contains analysis with issues array", async () => {
       const res = await request(app)
         .post("/api/v1/audit")
