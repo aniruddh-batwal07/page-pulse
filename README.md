@@ -278,7 +278,7 @@ Given additional time, I would extend the project with:
 
 Loom walkthrough:
 
-<LOOM_LINK>
+[<LOOM_LINK>](https://drive.google.com/file/d/1d8jjyAvPZ69BW0Xta07QdAMXNtPEU1Rp/view?usp=sharing)
 
 The demo covers:
 
@@ -293,6 +293,12 @@ The demo covers:
 ## Design Notes
 
 This project was intentionally designed with a clear separation of concerns, strong input validation, comprehensive error handling, and modular architecture. The goal was to produce a maintainable application rather than simply satisfy the minimum functional requirements.
+
+---
+
+## AI Usage
+
+AI tools (primarily ChatGPT and GitHub Copilot) were used to accelerate development, clarify implementation approaches, review architecture, and identify potential edge cases. I did not use AI output directly without review. I iterated on the generated code, refined the project structure, improved the UI, added production configuration, completed the missing assignment requirements (such as the live-build footer and approximate word count), expanded the test coverage, and verified the final implementation before deployment. All design decisions, integration, debugging, and final review were completed by me.
 
 ---
 
