@@ -1,6 +1,6 @@
 import { ContentTypeError, FetchError, HttpError } from "./errors.js";
 
-const FETCH_TIMEOUT_MS = 10_000;
+const FETCH_TIMEOUT_MS = Number(process.env.REQUEST_TIMEOUT_MS ?? 10_000);
 
 export interface FetchResult {
   html: string;
